@@ -20,5 +20,5 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
-    - name: Ejecutar la aplicación (opcional)
-      run: npm start
+      - name: Ejecutar la aplicación (opcional)
+        run: npm start
