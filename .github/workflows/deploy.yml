@@ -1,19 +1,18 @@
- name: Despliegue Continuo
-
-on:
+ name: Deploy App 
+ on:
   push:
     branches:
-      - main  # Se activa cuando haces push a la rama principal
+      - main
 
-jobs:
-  build:
+  jobs:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clonar el código
+      - name: Checkout del código
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
+      - name: Instalar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -21,12 +20,5 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
-      - name: Ejecutar pruebas (opcional)
-        run: npm test
-
-      - name: Construir la aplicación
-        run: npm run build
-
-      - name: Despliegue exitoso
-        run: echo "Despliegue completado correctamente"
-
+      - name: Ejecutar la aplicación (opcional)
+        run: npm start
